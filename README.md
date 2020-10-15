@@ -1,6 +1,6 @@
 # ControlVFDviaModbus
 **Control *invt* GD20 via Modbus RTU interface using QModBus <img src="https://i.imgur.com/sC8b9XM.png" width="30" height="30">**
-<img src="https://i.imgur.com/9zXzKIT.png" width="977" height="200">  
+<img src="https://i.imgur.com/9zXzKIT.png" width="977" height="300">  
 
 ## Modbus Introduction
 ### Modbus Protocol
@@ -32,8 +32,8 @@ Since then Modbus was one of the oldest fieldbuses on the market and still the m
 ## References
 [1] Modbus Introduction: http://www.espacemoteurs.com/catalogue/V-MANUEL-GD20.pdf  
 [2] Modbus History:  
-	- https://www.youtube.com/watch?v=OuM28tp5wXc&list=PLkNSEPvX820DURNp8MTTr-dIyBS1OsjV_&index=4
-	- https://instrumentationtools.com/modbus/  
-[3] 
-[4] 
-[5] 
+	* https://www.youtube.com/watch?v=OuM28tp5wXc&list=PLkNSEPvX820DURNp8MTTr-dIyBS1OsjV_&index=4  
+	* https://instrumentationtools.com/modbus/  
+[3]  
+[4]  
+[5]  
