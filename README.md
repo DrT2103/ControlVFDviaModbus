@@ -1,6 +1,6 @@
 # ControlVFDviaModbus
 **Control *invt* GD20 via Modbus RTU interface using QModBus <img src="https://i.imgur.com/sC8b9XM.png" width="30" height="30">**
-<img src="https://i.imgur.com/9zXzKIT.png" width="977" height="300">  
+<img src="https://i.imgur.com/9zXzKIT.png" width="977" height="290">  
 
 ## Modbus Introduction
 ### Modbus Protocol
