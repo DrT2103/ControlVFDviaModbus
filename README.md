@@ -1,7 +1,7 @@
 # ControlVFDviaModbus
 **Control *invt* GD20 via Modbus RTU interface using QModBus <img src="https://i.imgur.com/sC8b9XM.png" width="30" height="30">**
   
-<img src="https://i.imgur.com/9zXzKIT.png" width="977" height="290">  
+<img src="https://i.imgur.com/9zXzKIT.png" width="674" height="200">  
 
 ## Modbus Introduction
 ### Modbus Protocol
@@ -12,16 +12,28 @@ mode. On one Modbus network, all devices should select same transmission mode an
 After the master sends message, there is a period of time left for the controlled or inquired slaves to response, which ensure there is only one slave sends message to the master at a time for the avoidance of singles impact.
 *The Modbus protocol of the GD20 invt inverter is RTU mode and the physical layer is 2-wire RS485*
 
+### RS-232 and RS-485
+**RS-232** and **RS-485** are electrical standards which are widely used in industrial communication devices.  
+**RS-232** is used for short distance **point-to-point** communication, the same is valid for RS-422, which is a bidirectional extension of RS232 for industrial environments, that also supports longer distances.  
+**RS-485** can be used for **multipoint communication** (i.e. multiple devices connected to the same signal cable), employing the Master-Slave paradigm (one master and n fixed address slaves).
+
 ### Modbus History
 Since a Distributed Control System (DCS) became very expensive to purchase and maintain due to the cost of expensive cabling that had to be run from every sensor and actuator back to the central location, a company called Molly Kahn invented the first programmable logic controller (PLC) which were much cheaper but a very powerful control system device. However, PLC's were located at different points in the plant hence there needed to be a way for the various PLC's to communicate with each other and share their data.  
-In **1979**, **Modicon** came up with the Modbus which stands for Modicon Field Bus using the Modbus Protocol. It’s primary purpose was, of course, to exchange data between PLCs and other devices on the production floor. At that time, Modicon published the standard as a **free open standard**. In 1977 Modicon was acquired by Gould Electronics who subsequently sold the company to AEG in 1989. Then in 1994, AEG and Groupe Schneider combined forming AEG Schneider Automation and in 1996 this became solely owned by Groupe Schneider which was renamed as **Schneider Electric** in **1999**.
-Since then Modbus was one of the oldest fieldbuses on the market and still the most popular and most supported protocol in industrial applications nowadays.
+In **1979**, **Modicon** came up with the Modbus which stands for Modicon Field Bus using the Modbus Protocol. It’s primary purpose was, of course, to exchange data between PLCs and other devices on the production floor. At that time, Modicon published the standard as a **free open standard**. In 1977 Modicon was acquired by Gould Electronics who subsequently sold the company to AEG in 1989. Then in 1994, AEG and Groupe Schneider combined forming AEG Schneider Automation and in 1996 this became solely owned by Groupe Schneider which was renamed as **Schneider Electric** in 1999.
+Since then Modbus was one of the oldest fieldbuses on the market and still the **most popular** and **most supported** protocol in industrial applications nowadays.
 
-### Driver for Modbus Protocol
+## About QModBus
+QModBus is a free Qt-based implementation of a ModBus master application. A graphical user interface allows easy communication with ModBus slaves over serial line interface. QModBus also includes a bus monitor for examining all traffic on the bus.
+#### Technical details
+* Supports RTU mode of ModBus protocol
+* Parameters of serial port fully configurable
+* Bus monitor for examining all traffic on the bus
+* Backend based on [libmodbus](https://github.com/stephane/libmodbus/)
+* Supports both Linux and Windows
 
 ## Modbus Wiring and Voltage Specifications
 
-## PC-Inverter Communication with Modbus
+## PC-Inverter Communication via Modbus
 ### Start/Stop motor
 
 ### Control with Traperzoidal Profile and Urgent Braking
@@ -33,8 +45,8 @@ Since then Modbus was one of the oldest fieldbuses on the market and still the m
 ## References
 [1] Modbus Introduction: http://www.espacemoteurs.com/catalogue/V-MANUEL-GD20.pdf  
 [2] Modbus History:  
-	* https://www.youtube.com/watch?v=OuM28tp5wXc&list=PLkNSEPvX820DURNp8MTTr-dIyBS1OsjV_&index=4  
-	* https://instrumentationtools.com/modbus/  
-[3]  
-[4]  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- https://www.youtube.com/watch?v=OuM28tp5wXc&list=PLkNSEPvX820DURNp8MTTr-dIyBS1OsjV_&index=4  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- https://instrumentationtools.com/modbus/  
+[3] RS-232 & RS-485: http://jamod.sourceforge.net/kbase/protocol.html  
+[4] QModBus: http://qmodbus.sourceforge.net/  
 [5]  
