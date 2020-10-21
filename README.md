@@ -32,21 +32,31 @@ QModBus is a free Qt-based implementation of a ModBus master application. A grap
 * Supports both Linux and Windows
 
 ## Modbus Wiring and Voltage Specifications
+The interface of 2-wire RS485 works on semiduplex and its data signal applies differential transmission (or balance transmission). It uses **twisted pairs**, one of which is defined as A (+) and the other is defined as B (-).
+* If the electrical level is among **+2V~+6V**, it is logic “**1**”
+* If the electrical level is among **-2V~-6V**; it is logic “**0**”.
+*485+ on the terminal board corresponds to A and 485- to B.*
 
 ## PC-Inverter Communication via Modbus
 ### Start/Stop motor
 
 ### Control with Traperzoidal Profile and Urgent Braking
+#### Constant Torque load
+The GD20 series (here using model *GD20-0R7G-S2*) with "G" stand for constant torque load which is described as the *graph* below  
+<img src="https://i.imgur.com/bQIA239.png" width="400" height="400">  
+Constant torque loads require the same amount of torque at low speeds as at high speeds.  
+For example, if the speed increases by 50%, then the power required to drive the operation will increase 50% while the torque remains constant.
 
 ### Sampling Motor Speed
 
 ### Multiple Motors Synchronization using PID
 
 ## References
-[1] Modbus Introduction: http://www.espacemoteurs.com/catalogue/V-MANUEL-GD20.pdf  
+[1] Modbus: http://www.espacemoteurs.com/catalogue/V-MANUEL-GD20.pdf  
 [2] Modbus History:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- https://www.youtube.com/watch?v=OuM28tp5wXc&list=PLkNSEPvX820DURNp8MTTr-dIyBS1OsjV_&index=4  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- https://instrumentationtools.com/modbus/  
 [3] RS-232 & RS-485: http://jamod.sourceforge.net/kbase/protocol.html  
 [4] QModBus: http://qmodbus.sourceforge.net/  
-[5]  
+[5] Constant Torque load: https://www.se.com/ww/en/faqs/FA105387/
+[6]   
