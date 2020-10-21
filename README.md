@@ -34,7 +34,7 @@ QModBus is a free Qt-based implementation of a ModBus master application. A grap
 ## Modbus Wiring and Voltage Specifications
 The interface of 2-wire RS485 works on semiduplex and its data signal applies differential transmission (or balance transmission). It uses **twisted pairs**, one of which is defined as A (+) and the other is defined as B (-).
 * If the electrical level is among **+2V~+6V**, it is logic “**1**”
-* If the electrical level is among **-2V~-6V**; it is logic “**0**”.
+* If the electrical level is among **-2V~-6V**; it is logic “**0**”.  
 *485+ on the terminal board corresponds to A and 485- to B.*
 
 ## PC-Inverter Communication via Modbus
@@ -58,5 +58,5 @@ For example, if the speed increases by 50%, then the power required to drive the
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- https://instrumentationtools.com/modbus/  
 [3] RS-232 & RS-485: http://jamod.sourceforge.net/kbase/protocol.html  
 [4] QModBus: http://qmodbus.sourceforge.net/  
-[5] Constant Torque load: https://www.se.com/ww/en/faqs/FA105387/
+[5] Constant Torque load: https://www.se.com/ww/en/faqs/FA105387/  
 [6]   
