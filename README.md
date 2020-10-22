@@ -38,14 +38,22 @@ The interface of 2-wire RS485 works on semiduplex and its data signal applies di
 *485+ on the terminal board corresponds to A and 485- to B.*
 
 ## PC-Inverter Communication via Modbus
-### Start/Stop motor
+### GD20's Modbus protocol
 
-### Control with Traperzoidal Profile and Urgent Braking
+
+### Start/Stop motor
 #### Constant Torque load
 The GD20 series (here using model *GD20-0R7G-S2*) with "G" stand for constant torque load which is described as the *graph* below  
 <img src="https://i.imgur.com/bQIA239.png" width="400" height="400">  
 Constant torque loads require the same amount of torque at low speeds as at high speeds.  
 For example, if the speed increases by 50%, then the power required to drive the operation will increase 50% while the torque remains constant.
+#### Forward running
+
+#### Reverse running
+
+
+### Urgent Braking
+
 
 ### Sampling Motor Speed
 
