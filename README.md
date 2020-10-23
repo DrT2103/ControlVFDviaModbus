@@ -53,7 +53,7 @@ Function code | Name | Setting value | Description
 `P14.02` | Digital bit checkout | 0<br/>1<br/>2<br/>3<br/>4<br/>5 | No check (N,8,1)for RTU<br/>Even check (E,8,1)for RTU<br/>Odd check (O,8,1)for RTU<br/>No check (N,8,2)for RTU<br/>Even check (E,8,2)for RTU<br/>Odd check (O,8,2)for RTU
 
 Then, we set up hardware connections for the communication between PC and inverter through a **USB to RS485 Converter Module**, here using **FT232RL** and **MAX485** IC's. The motor is connected with the inverter.  
-
+<img src="https://i.imgur.com/ooctNHd.png" width="1135" height="150">  
 
 ### Constant Torque load
 The GD20 series (here using model *GD20-0R7G-S2*) with "G" stand for constant torque load which is described as the *graph* below  
