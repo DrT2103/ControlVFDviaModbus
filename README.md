@@ -31,29 +31,46 @@ QModBus is a free Qt-based implementation of a ModBus master application. A grap
 * Backend based on [libmodbus](https://github.com/stephane/libmodbus/)
 * Supports both Linux and Windows
 
+The QModBus interface:  
+<img src="https://i.imgur.com/M0NEY9v.png" width="585" height="400">
+
 ## Modbus Wiring and Voltage Specifications
 The interface of 2-wire RS485 works on semiduplex and its data signal applies differential transmission (or balance transmission). It uses **twisted pairs**, one of which is defined as A (+) and the other is defined as B (-).
 * If the electrical level is among **+2V~+6V**, it is logic “**1**”
-* If the electrical level is among **-2V~-6V**; it is logic “**0**”.  
+* If the electrical level is among **-2V~-6V**; it is logic “**0**”.
+
 *485+ on the terminal board corresponds to A and 485- to B.*
 
 ## PC-Inverter Communication via Modbus
 ### GD20's Modbus protocol
+First, to have the inverter communicate with the PC, some initial parameters have been set as follow:  
+Function code | Name | Setting value | Description
+:-----------: | ---- | :-----------: | -----------
+`P00.01` | Run command channel | 2 | Communication running command channel ("LOCAL/REMOT" on);<br/>The running command is controlled by the upper monitor via communication protocol.
+`P00.06` | A frequency command selection | 8 | MODBUS communication setting.<br/>The frequency is set by MODBUS communication.
+`P14.00` | Local communication address | 1 | The address of the slave (1 ~ 247, cannot be 0)
+`P14.01` | Communication baud ratio | 1<br/>2<br/>3<br/>4<br/>5<br/>6 | 1200bps<br/>2400bps<br/>4800bps<br/>9600bps<br/>19200bps<br/>38400bps<br/>57600bps
+`P14.02` | Digital bit checkout | 0<br/>1<br/>2<br/>3<br/>4<br/>5 | No check (N,8,1)for RTU<br/>Even check (E,8,1)for RTU<br/>Odd check (O,8,1)for RTU<br/>No check (N,8,2)for RTU<br/>Even check (E,8,2)for RTU<br/>Odd check (O,8,2)for RTU
+
+Then, we set up hardware connections for the communication between PC and inverter through a **USB to RS485 Converter Module**, here using **FT232RL** and **MAX485** IC's. The motor is connected with the inverter.  
 
 
-### Start/Stop motor
-#### Constant Torque load
+### Constant Torque load
 The GD20 series (here using model *GD20-0R7G-S2*) with "G" stand for constant torque load which is described as the *graph* below  
 <img src="https://i.imgur.com/bQIA239.png" width="400" height="400">  
 Constant torque loads require the same amount of torque at low speeds as at high speeds.  
 For example, if the speed increases by 50%, then the power required to drive the operation will increase 50% while the torque remains constant.
+
+### Start/Stop motor
+
 #### Forward running
 
 #### Reverse running
 
+#### Stopping and Urgent Braking
 
-### Urgent Braking
 
+*vid here*
 
 ### Sampling Motor Speed
 
@@ -67,4 +84,4 @@ For example, if the speed increases by 50%, then the power required to drive the
 [3] RS-232 & RS-485: http://jamod.sourceforge.net/kbase/protocol.html  
 [4] QModBus: http://qmodbus.sourceforge.net/  
 [5] Constant Torque load: https://www.se.com/ww/en/faqs/FA105387/  
-[6]   
+[6] USB to RS485 Driver: http://www.ftdichip.com/Drivers/CDM/CDM%20v2.12.06%20WHQL%20Certified.exe  
