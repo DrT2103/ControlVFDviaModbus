@@ -42,32 +42,28 @@ The interface of 2-wire RS485 works on semiduplex and its data signal applies di
 *485+ on the terminal board corresponds to A and 485- to B.*
 
 ## PC-Inverter Communication via Modbus
-### GD20's Modbus protocol
-First, to have the inverter communicate with the PC, some initial parameters have been set as follow:  
-Function code | Name | Setting value | Description
-:-----------: | ---- | :-----------: | -----------
-`P00.01` | Run command channel | 2 | Communication running command channel ("LOCAL/REMOT" on);<br/>The running command is controlled by the upper monitor via communication protocol.
-`P00.06` | A frequency command selection | 8 | MODBUS communication setting.<br/>The frequency is set by MODBUS communication.
-`P14.00` | Local communication address | 1 | The address of the slave (1 ~ 247, cannot be 0)
-`P14.01` | Communication baud ratio | 1<br/>2<br/>3<br/>4<br/>5<br/>6 | 1200bps<br/>2400bps<br/>4800bps<br/>9600bps<br/>19200bps<br/>38400bps<br/>57600bps
-`P14.02` | Digital bit checkout | 0<br/>1<br/>2<br/>3<br/>4<br/>5 | No check (N,8,1)for RTU<br/>Even check (E,8,1)for RTU<br/>Odd check (O,8,1)for RTU<br/>No check (N,8,2)for RTU<br/>Even check (E,8,2)for RTU<br/>Odd check (O,8,2)for RTU
-
-Then, we set up hardware connections for the communication between PC and inverter through a **USB to RS485 Converter Module**, here using **FT232RL** and **MAX485** IC's. The motor is connected with the inverter.  
-<img src="https://i.imgur.com/ooctNHd.png" width="1135" height="150">  
-
 ### Constant Torque load
 The GD20 series (here using model *GD20-0R7G-S2*) with "G" stand for constant torque load which is described as the *graph* below  
 <img src="https://i.imgur.com/bQIA239.png" width="400" height="400">  
 Constant torque loads require the same amount of torque at low speeds as at high speeds.  
 For example, if the speed increases by 50%, then the power required to drive the operation will increase 50% while the torque remains constant.
 
-### Start/Stop motor
+### Basic motor control with Modbus
+First, to have the inverter communicate with the PC, some initial parameters have been set as follow:  
+Function code | Name | Setting value | Description
+:-----------: | ---- | :-----------: | -----------
+`P00.01` | Run command channel | 2 | Communication running command channel ("LOCAL/REMOT" on);<br/>The running command is controlled by the upper monitor via communication protocol.
+`P00.06` | A frequency command selection | 8 | MODBUS communication setting.<br/>The frequency is set by MODBUS communication.
+`P14.00` | Local communication address | 1 | The address of the slave (1 ~ 247, cannot be 0)
+`P14.01` | Communication baud ratio | 0<br/>1<br/>2<br/>3<br/>4<br/>5<br/>6 | 1200bps<br/>2400bps<br/>4800bps<br/>9600bps<br/>19200bps<br/>38400bps<br/>57600bps
+`P14.02` | Digital bit checkout | 0<br/>1<br/>2<br/>3<br/>4<br/>5 | No check (N,8,1)for RTU<br/>Even check (E,8,1)for RTU<br/>Odd check (O,8,1)for RTU<br/>No check (N,8,2)for RTU<br/>Even check (E,8,2)for RTU<br/>Odd check (O,8,2)for RTU
 
-#### Forward running
+Then, we set up hardware connections for the communication between PC and inverter through a **USB to RS485 Converter Module**, here using **FT232RL** and **MAX485** IC's. The motor is connected with the inverter.  
+<img src="https://i.imgur.com/ooctNHd.png" width="1135" height="150">
 
-#### Reverse running
-
-#### Stopping and Urgent Braking
+After having the above connections between PC, inverter and motor. We adjust the software settings of RTU mode to match with parameters set on inverter.  
+For example, the inverter is set to using Modbus as communication protocol with address of 1, baudrate is 19200bps and even parity checking (or `P00.01 = 2`, `P00.06 = 8`, `P14.00 = 1`, `P14.01 = 4`, `P14.02 = 1`). Then, the RS485 interface of QModBus have to be set as follow for writing data purpose:  
+<img src="https://i.imgur.com/0307RyH.png" width="1135" height="150">  
 
 
 *vid here*
