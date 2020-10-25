@@ -62,11 +62,19 @@ Then, we set up hardware connections for the communication between PC and invert
 <img src="https://i.imgur.com/ooctNHd.png" width="1135" height="150">
 
 After having the above connections between PC, inverter and motor. We adjust the software settings of RTU mode to match with parameters set on inverter.  
-For example, the inverter is set to using Modbus as communication protocol with address of 1, baudrate is 19200bps and even parity checking (or `P00.01 = 2`, `P00.06 = 8`, `P14.00 = 1`, `P14.01 = 4`, `P14.02 = 1`). Then, the RS485 interface of QModBus have to be set as follow for writing data purpose:  
-<img src="https://i.imgur.com/0307RyH.png" width="1135" height="150">  
+For example, the inverter is set to using Modbus as communication protocol with address of 1, baudrate is 9600bps and even parity checking (or `P00.01 = 2`, `P00.06 = 8`, `P14.00 = 1`, `P14.01 = 3`, `P14.02 = 1`). Then, the RS485 interface of QModBus have to be set as follow for writing data purpose:  
+<img src="https://i.imgur.com/0307RyH.png" width="585" height="400">  
+* **USB Serial Port (COM3)** receives directly signal from USB to RS485 converter.
+* **Baud**, **Data bits**, **Stop bits** **Parity** and **Slave ID** are set to be appropriated with the settings on inverter.
+* Function code `0x06` is use to right data to single register.
 
+Having all settings are done, now we can basically control the motor to start/stop, forward/reverse and brake, ... follows the below data format.  
+<img src="https://i.imgur.com/YIEhcBM.png" width="574.5" height="100">  
+For basic control via Modbus protocol, we have:  
+<img src="https://i.imgur.com/002HdSH.png" width="713" height="400">  
 
-*vid here*
+The detail description video for basic control motor via Modbus protocol:
+[![QModBus Basic Motor Control](https://i.imgur.com/r3NE8uh.png)](https://www.youtube.com/watch?v=w6irsf25l20&t "QModBus Basic Motor Control")
 
 ### Sampling Motor Speed
 
